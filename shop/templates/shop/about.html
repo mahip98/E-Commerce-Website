@@ -1,0 +1,44 @@
+{% extends 'shop/basic.html' %}
+
+{% block title %} About Us {% endblock %}
+{% block css %}
+footer {
+        text-align: center;
+        padding: -10px;
+        color: black;
+    }
+.center {
+  margin: auto;
+  width: 60%;
+  text-align: center;
+}
+{% endblock %}
+{% block body %}
+<body style="background-color:lightpink;">
+  <div class="container py-4">
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-1">
+          <div class="center">
+          <h1 class="display-5 fw-bold">My Awesome Cart</h1><br>
+          <p align="center">My Awesome Cart is an Indian multinational technology company based in Rajkot, India which focuses on e-commerce, cloud computing, digital streaming, and artificial intelligence. It is one of the Big Five companies in the India information technology industry, along with Google, Apple, Microsoft, and Facebook. The company has been referred to as "one of the most influential economic and cultural forces in the world", as well as the world's most valuable brand. Mahip Patel founded My Awesome Cart from his garage in Rajkot, India on July 5, 1994. It started as an online marketplace for books but expanded to sell electronics, software, video games, apparel, furniture, food, toys, and jewelry. In 2015, My Awesome Cart surpassed Walmart as the most valuable retailer in the India by market capitalization. In 2017, My Awesome Cart acquired Whole Foods Market for US$13.4 billion, which substantially increased its footprint as a physical retailer.</p>
+          <button onclick="window.location.href='/shop/'" class="btn btn-primary btn-lg" type="button">Home Page</button>
+          </div>
+      </div>
+    </div>
+
+            <div class="center">
+                <div class="h-100 p-5 text-white bg-dark rounded-3">
+                    <h2>Mahip Patel</h2>
+                    <p>The young guy who founded this website has a brilliant taste of software and has bachelors degree in the field of electronics and communication engineering from G.H.Patel College of Engineering and Technology.</p>
+                    <button class="btn btn-outline-light" type="button">Contact Info</button>
+                </div>
+            </div>
+
+    <footer class="pt-3 mt-4 text-muted border-top">
+      <p>MyAwesomeCart<br>
+        <a href="mailto:myawesomecart@gmail.com">myawesomecart@gmail.com</a></p>
+      &copy; 2021
+    </footer>
+  </div>
+</body>
+{% endblock %}

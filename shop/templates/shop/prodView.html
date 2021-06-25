@@ -1,0 +1,85 @@
+{% extends 'shop/basic.html' %}
+
+{% block title %} {{product.product_name}} - My Awesome Cart {% endblock %}
+{% block css %}
+    .zoomin img {
+      height: 250px;
+      width: 233px;
+      -webkit-transition: all 2s ease;
+      -moz-transition: all 2s ease;
+      -ms-transition: all 2s ease;
+      transition: all 2s ease;
+    }
+
+    .zoomin img:hover {
+      width: 350px;
+      height: 350px;
+    }
+.footer {
+        position: fixed;
+        text-align: center;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        color: black;
+    }
+{% endblock %}
+{% block body %}
+<div class="container my-4">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="row">
+                <div class="zoomin">
+                    <img src="/media/{{product.image}}" width="233px" height="385px">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <button onclick="window.location.href='/shop/'" class="btn btn-primary mx-2">Add To Cart</button>
+                <button onclick="window.location.href='/shop/'" class="btn btn-primary mx-1">Go Back</button>
+            </div>
+        </div>
+        <div class="col-md-8 mt-5">
+            <h5>{{product.product_name}}</h5>
+            <p><b>Rs. {{product.price}}</b></p>
+            <p>{{product.desc}}</p>
+        </div>
+    </div>
+     <div class="footer border-top">
+      <p>MyAwesomeCart<br>
+        <a href="mailto:myawesomecart@gmail.com">myawesomecart@gmail.com</a></p>
+      &copy; 2021
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script>
+console.log('working');
+if(localStorage.getItem('cart') == null){
+var cart = {};
+}
+else
+{
+cart = JSON.parse(localStorage.getItem('cart'));
+document.getElementById('cart').innerHTML = Object.keys(cart).length;
+}
+$('.cart').click(function(){
+console.log('clicked');
+var idstr = this.id.toString();
+console.log(idstr);
+if (cart[idstr] !=undefined){
+cart[idstr] = cart[idstr] + 1;
+}
+else
+{
+cart[idstr] = 1;
+}
+console.log(cart);
+localStorage.setItem('cart', JSON.stringify(cart));
+document.getElementById('cart').innerHTML = Object.keys(cart).length;
+});
+$('#popcart').popover();
+document.getElementById("popcart").setAttribute('data-content', '<h5>Cart for your items in  my shopping cart</h5>');
+</script>
+{% endblock %}

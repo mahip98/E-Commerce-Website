@@ -1,0 +1,91 @@
+{% extends 'shop/basic.html' %}
+
+{% block title %} Contact Us {% endblock %}
+{% block css %}
+    .split {
+        height: 100%;
+        width: 50%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        overflow-x: hidden;
+        padding-top: 20px;
+        }
+
+    .left {
+        left: 0;
+    }
+
+    .right {
+        right: 0;
+    }
+
+    .centered {
+        position: fixed;
+        left: 0.5%;
+    }
+
+    .centered img {
+        height: 514px;
+        width: 940px;
+    }
+    .footer {
+        position: fixed;
+        text-align: center;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        color: black;
+    }
+{% endblock %}
+{% block body %}
+<body style="background-color:MintCream;">
+<div class="container my-3">
+    <div class="split left my-5">
+        <div class="centered">
+            <img src="https://st2.depositphotos.com/1826664/7176/i/950/depositphotos_71768271-stock-photo-contact-us-squares-separator-blue.jpg" alt="...">
+        </div>
+    </div>
+
+    <div class="split right my-5">
+        <h3>Contact Us Regarding any Query</h3>
+        <form action="/shop/contact/" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="name" class="form-control" id="name" name="name" placeholder="Enter Your Name">
+            </div>
+            <div class="form-group">
+                <label for="name" >Email address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email Id">
+                <div id="emailHelp" class="form-text"><i>We'll never share your email with anyone else and would be secured.</i></div>
+            </div>
+            <div class="form-group">
+                <label for="name">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter Your Phone Number">
+            </div>
+            <div class="form-group">
+                <label for="desc">Please specify your QUERY</label>
+                <textarea class="form-control" id="desc" name="desc" placeholder="How May We help You" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+    <div class="footer border-top">
+      <p>MyAwesomeCart<br>
+        <a href="mailto:myawesomecart@gmail.com">myawesomecart@gmail.com</a></p>
+      &copy; 2021
+    </div>
+</div>
+</body>
+{% endblock %}
+
+{% block js %}
+<script>
+$('#itemsJson').val(JSON.stringify(cart));
+{% if thank %}
+alert('Thanks for contacting us. Your query has been stored and would get the reply back from us as soon as possible. Stay back and stay connected.');
+document.location = "/shop";
+{% endif %}
+</script>
+{% endblock %}
