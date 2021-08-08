@@ -121,7 +121,7 @@ def __decode__(to_decode, iv, key):
 
 if __name__ == "__main__":
     params = {
-        "MID": "Your Merchant ID Here",
+        "MID": "JlJMKN92529140733790",
         "ORDER_ID": "order_id",
         "CUST_ID": "cust_id",
         "TXN_AMOUNT": "1",
