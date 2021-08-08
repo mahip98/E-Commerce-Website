@@ -6,7 +6,7 @@ import json
 from datetime import datetime
 from django.views.decorators.csrf import csrf_exempt
 from PayTm import Checksum
-MERCHANT_KEY = "nnY#L%EvurefQTYp"
+MERCHANT_KEY = "Keep your Merchant Key Here"
 
 def index(request):
     allProds = []
@@ -107,7 +107,7 @@ def checkout(request):
         # Request paytm to transfer the amount to your account after payment by user.
         param_dict = {
 
-            'MID': 'JlJMKN92529140733790',
+            'MID': 'Keep Your Merchant ID here',
             'ORDER_ID': str(order.order_id),
             'TXN_AMOUNT': str(amount),
             'CUST_ID': email,
